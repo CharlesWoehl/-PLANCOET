@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Monuments</h1>
+
+<div id="monuments">
+  <% @monuments.each do |monument| %>
+    <%= render monument %>
+    <p>
+      <%= link_to "Show this monument", monument %>
+    </p>
+  <% end %>
+</div>
+
+<button data-action="click->toggle#fire" class="btn btn-outline-primary" data-controller="toggle">Add a new monument</button>
+<div data-toggle-target="togglableElement" class="d-none">
+  d
+  <%= render "form", monument: @monument %>
+</div>
