@@ -1,1 +1,48 @@
 // Specific CSS for your home-page
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 210px 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 500px;
+}
+.title-actu-home {
+  width: 100%;
+  height: auto;
+  margin-top: 325px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+.icone-actu-home {
+  width: 100px;
+  height: 100px;
+  background-color: $blue;
+  border-radius: 50%;
+  font-size: 40px;
+  color: white;
+  transform: rotate(-35deg);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+.title-under-icone {
+  margin-top: 20px;
+  font-family: $headers-font;
+  font-size: 18px;
+  color: $blue;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.no-link {
+  text-decoration: none;
+  color: inherit;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 100% de la hauteur de la fenêtre visible */
+  margin: 0;
+}

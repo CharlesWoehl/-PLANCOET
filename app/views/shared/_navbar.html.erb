@@ -1,0 +1,33 @@
+
+<nav class="navbar navbar-expand-lg navbar-light navbar-jaimeplancoet sticky-top transparent"
+  data-controller="navbar"
+  data-action="scroll@window->navbar#updateNavbar">
+  <div class="container-fluid px-5">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "logo.png", style: "height:90px; width:auto", class: "logo" %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <%# if user_signed_in? %>
+               <li class="nav-item active">
+              <%= link_to "Actualités","#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Agenda", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Associations", "#", class: "nav-link" %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Ma ville pratique", "#", class: "nav-link" %>
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
