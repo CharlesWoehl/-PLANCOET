@@ -52,6 +52,10 @@ gem "sassc-rails"
 gem 'trestle'
 gem 'devise'
 gem "cloudinary"
+gem 'trestle-simplemde'
+gem 'redcarpet'
+gem 'kaminari'
+gem 'rails-i18n'
 
 group :development, :test do
   gem "dotenv-rails"

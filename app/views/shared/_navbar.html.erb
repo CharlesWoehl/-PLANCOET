@@ -15,13 +15,13 @@
       <ul class="navbar-nav me-auto">
         <%# if user_signed_in? %>
                <li class="nav-item active">
-              <%= link_to "Actualités","#", class: "nav-link" %>
+              <%= link_to "Actualités", actualities_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Agenda", "#", class: "nav-link" %>
+            <%= link_to "Agenda", events_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Associations", "#", class: "nav-link" %>
+            <%= link_to "Associations", associations_path, class: "nav-link" %>
           </li>
 
           <li class="nav-item">

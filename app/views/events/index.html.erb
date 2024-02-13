@@ -1,0 +1,115 @@
+<div class="title-actu-home d-flex align-items-center flex-column justify-content-center" style="margin-top:20px">
+  <div class="icone-asso-home d-flex justify-content-center align-items-center">
+    <i class="fa-solid fa-calendar-days"></i>
+  </div>
+  <div class="title-under-icone">
+    <h2 class="title">Agenda</h2>
+  </div>
+  <p class="sub-title">Cliquez sur un évènement pour en savoir plus.
+  </p>
+</div>
+<div class="content container px-5 py-3" style="flex:1">
+  <div class="row">
+    <div class="col-md-8">
+<% if params.dig(:filter, :keywords).present? || params.dig(:filter, :category).present? %>
+  <!-- Affichez votre breadcrumb ici -->
+  <div class="result-search">
+    <b>Votre recherche :</b>
+    <% if params.dig(:filter, :keywords).present? %>
+      Mot clé : <%= @query %>
+      <% if params.dig(:filter, :category).present? %>
+        -
+      <% end %>
+    <% end %>
+
+    <% if params.dig(:filter, :category).present? %>
+      Catégorie : <%= params[:filter][:category] %>
+    <% end %>
+  </div>
+  <% end %>
+
+      <% @events.each do |agenda| %>
+        <%= link_to event_path(agenda), class: "no-link" do %>
+          <div class="row card-product p-0">
+            <div class="col-md-4 px-0">
+              <% if agenda.photo&.key? %>
+                <%= cl_image_tag agenda.photo.key, class: "card-img zoom" %>
+              <% else %>
+                <%= image_tag 'logo', class: "card-img zoom" %>
+              <% end %>
+            </div>
+            <div class="col-md-8 px-4">
+              <div class="py-2"><i class="fa-solid fa-tag"></i> <%= agenda.category.name %></div>
+              <div><h3><%= agenda.title %></h3></div>
+              <div><%= agenda.subtitle %></div>
+              <div class="py-2"><i class="fa-solid fa-location-dot"></i> <%= agenda.place %></div>
+            </div>
+            <div class="col-md-12 bg-blue p-1 text-center ">
+              <div>
+                <% if agenda.end_date.present? %>
+                  <%= I18n.localize(agenda.start_date, format: '%d %B %Y') %> au <%= I18n.localize(agenda.end_date, format: '%d %B %Y') %>
+                <% else %>
+                  <%= I18n.localize(agenda.start_date, format: '%d %B %Y') %>
+                  <% if agenda.hourly_end.present? %>
+                    de <%= agenda.hourly_start %> à <%= agenda.hourly_end %>
+                  <% elsif agenda.hourly_start.present? %>
+                    à <%= agenda.hourly_start %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+ <%= paginate @events %>
+     </div>
+    <% unless request.user_agent =~ /iPhone/ %>
+        <div class="col-md-4">
+          <div class="search">
+            <h4 class="pb-2">Filtrer les résultats par</h4>
+            <%= simple_form_for :filter, url: events_path, method: :get, html: { class: 'form-inline w-100' } do |f| %>
+              <h5>Catégories</h5>
+              <%= f.input :category, collection: Category.pluck(:name), prompt: "Sélectionnez une catégorie", required: false, input_html: { class: 'form-control', value: params.dig(:filter, :category) }, label: false %>
+              <h5 class="pt-2">Mots clés</h5>
+              <%= f.input :keywords, placeholder: 'Recherche ...', label: false, input_html: { class: 'form-control', value: params[:filter]&.[](:keywords), autocomplete: 'off' } %>
+              <div>
+                <button class="btn btn-primary w-100 my-1">Rechercher</button><br>
+              </div>
+              <div>
+                <%= link_to events_path, class: 'btn btn-primary w-100 opacity-75' do %>
+                  Réinitialiser
+                <% end %>
+              </div>
+              <div>
+                <button type="button" class="btn btn-outline-primary w-100 my-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  Proposer un évènement
+                </button>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade modal-xl" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-white px-2">
+      <div class="modal-header">
+    <h2 class="title">Proposer un évènement</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <%= render 'events/form', event: @event %> <!-- Inclure le formulaire partiel -->
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>

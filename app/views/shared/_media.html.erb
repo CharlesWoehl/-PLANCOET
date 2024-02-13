@@ -1,5 +1,5 @@
 <hr>
 <h3>Photo actuelle</h3>
-  <% if general.photo&.key? %>
-    <%= cl_image_tag general.photo.key, class: "card-img" %>
-  <% end %>
+<% if model.photo&.key? %>
+  <%= cl_image_tag model.photo.key, class: "card-img" %>
+<% end %>

@@ -15,6 +15,9 @@ export default class extends Controller {
     const isHomePage = document.location.href === "http://localhost:3000/";
     const isTransparent = this.element.classList.contains("transparent");
 
+    // Vérifier si la taille de l'écran est inférieure à 768px (taille courante des appareils mobiles)
+    const isMobileScreen = window.innerWidth < 768;
+
     if (isHomePage) {
       if (window.scrollY >= 100) {
         this.element.classList.remove("transparent");
@@ -23,11 +26,13 @@ export default class extends Controller {
       } else {
         this.element.classList.remove("white");
         this.element.classList.add("transparent");
-        this.setNavLinksClasses("text-white");
+        // Appliquer la classe nav-link si la taille de l'écran est inférieure à 768px
+        this.setNavLinksClasses(isMobileScreen ? "nav-link" : "text-white");
       }
     } else {
       this.element.classList.add("white");
-      this.setNavLinksClasses("text-blue");
+      // Appliquer la classe nav-link si la taille de l'écran est inférieure à 768px
+      this.setNavLinksClasses(isMobileScreen ? "nav-link" : "text-blue");
     }
   }
 

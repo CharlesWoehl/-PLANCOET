@@ -18,7 +18,7 @@ Trestle.resource(:generals) do
     end
     tab :photo_accueil do
       file_field :photo, accept: "image/*"
-      render "shared/media", general: general
+      render "shared/media", model: general
 
     end
   end

@@ -1,0 +1,48 @@
+<div class="title-actu-home d-flex align-items-center flex-column justify-content-center" style="margin-top:20px">
+  <div class="icone-asso-home d-flex justify-content-center align-items-center">
+   <i class="fa-solid fa-hand-holding-heart"></i>
+  </div>
+  <div class="title-under-icone">
+    <h2 class="title">Les associations</h2>
+  </div>
+  <p class="sub-title">Retrouvez ci-dessous toutes les associations de Plancoët.
+ </p>
+</div>
+<div class="content container" style="flex:1">
+
+<div class="my-3">
+  <div class="d-flex flex-wrap justify-content-center pb-4">
+    <% @category.each do |catassoc| %>
+      <div class="d-flex mx-2 mb-2">
+        <%= link_to associations_path(filter: { category: catassoc.name }) do %>
+          <button class="btn btn-primary py-2 px-4" style="background-color:<%= catassoc.color %> !important; border:none; border-radius:10px">
+            <%= catassoc.name %>
+          </button>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <% @associations.each do |association| %>
+      <div class="flex-container col-md-2">
+        <%= link_to association_path(association), class: 'no-link' do %>
+          <div class="flex-item car">
+              <div class="pic-card-asso">
+                <% if association.photo&.key? %>
+                    <%= cl_image_tag association.photo.key, class: "pic-card-asso zoom" %>
+                <% else %>
+                    <%= image_tag 'home/home', class: "card-img zoom" %>
+                <% end %>
+              </div>
+            <div class="title-card-asso" style="color:<%= association.category.color %>">
+              <%= truncate(association.name, length: 52) %>
+            </div>
+
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :monuments
+  resources :actualities, only: %i[index show]
+  resources :events, only: %i[index show new create], path: 'agenda'
+  resources :associations, only: %i[index show]
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

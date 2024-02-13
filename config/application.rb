@@ -13,7 +13,11 @@ module Plancoet
       generate.helper false
       generate.test_framework :test_unit, fixture: false
     end
-
+    config.before_initialize do
+      config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+      config.i18n.default_locale = :fr
+      config.active_record.default_timezone = :utc
+     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 

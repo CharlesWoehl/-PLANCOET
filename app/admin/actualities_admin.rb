@@ -3,24 +3,32 @@ Trestle.resource(:actualities) do
     item :actualities, icon: "fa fa-rss", label:"Actualités"
   end
 
-  # Customize the table columns shown on the index view.
-  #
-  # table do
-  #   column :name
-  #   column :created_at, align: :center
-  #   actions
-  # end
+  table do
+    column :activate, align: :center, header: "Statut"
+    column :date, header: "Date de parution"
+    column :title, header: "Titre" do |actuality|
+      "#{actuality.title}"
+    end
+     column :category, header: "Catégorie"
+    actions
+  end
 
-  # Customize the form fields shown on the new/edit views.
-  #
-  # form do |actuality|
-  #   text_field :name
-  #
-  #   row do
-  #     col { datetime_field :updated_at }
-  #     col { datetime_field :created_at }
-  #   end
-  # end
+  form do |actuality|
+    tab :actuality, label: "Actualité" do
+      text_field :title, label: "Titre"
+      text_field :short_description, label: "Description courte"
+      select :category_id, Category.all, label: "Catégorie"
+      editor :content, label: "Contenu"
+    end
+    tab :photo, label: "Photo" do
+      file_field :photo
+      render "shared/media", model: actuality
+    end
+    tab :date, label: "Date de parution" do
+      date_field :date, label: "Date de parution", class: "datepicker col-2"
+      check_box :activate, label: "Activer l'actualité"
+     end
+  end
 
   # By default, all parameters passed to the update and create actions will be
   # permitted. If you do not have full trust in your users, you should explicitly

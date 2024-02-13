@@ -1,0 +1,65 @@
+
+<div class="title-actu-home d-flex align-items-center flex-column justify-content-center" style="margin-top:20px">
+  <div class="icone-asso-show d-flex justify-content-center align-items-center">
+   <%= cl_image_tag @association.photo.key, class: "asso-img zoom" %>
+  </div>
+  <div class="title-under-icone">
+    <h2 class="title" style="color:<%= @association.category.color %>"><%= @association.name %></h2>
+  </div>
+  <p class="sub-title"><%= @association.short_description %>
+ </p>
+</div>
+<div class="content container col-md-8" style="flex:1">
+  <% markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new) %>
+<div><%= markdown.render(@association.resume).html_safe %></div>
+ <div class="my-5 d-flex">
+  <% if @association.president? %>
+  <div class="row w-100">
+  <div class="col-md-6 text-center">
+  <h3>Président.e</h3>
+  <% if @association.president? %>
+    <div><%= @association.president %></div>
+  <% end %>
+  <% if @association.phone_president.present? %>
+    <div><%= @association.phone_president %></div>
+  <% end %>
+  <% if @association.mail_president.present? %>
+    <div><%= @association.mail_president %></div>
+  <% end %>
+</div>
+<% end %>
+  <% if @association.referent.present? %>
+<div class="col-md-6 text-center">
+  <h3>Contact</h3>
+  <% if @association.referent.present? %>
+    <div><%= @association.referent %></div>
+  <% end %>
+  <% if @association.phone_referent.present? %>
+    <div><%= @association.phone_referent %></div>
+  <% end %>
+  <% if @association.mail_referent.present? %>
+    <div><%= @association.mail_referent %></div>
+  <% end %>
+</div>
+</div>
+<% end %>
+</div>
+ <% if @association.website.present? %>
+  <div class="text-center">
+    <%= link_to @association.website, 'http://@association.website', target: '_blank', class: "nav-link-site" %>
+   </div>
+  <% end %>
+  <div class="text-center">
+  <% if @association.facebook? %>
+    <%= link_to @association.facebook, target: '_blank', class: 'nav-link-reseaux' do %>
+      <i class="fa-brands fa-facebook"></i>
+    <% end %>
+  <% end %>
+
+  <% if @association.instagram? %>
+    <%= link_to @association.instagram, target: '_blank', class: 'nav-link-reseaux' do %>
+      <i class="fa-brands fa-instagram"></i>
+    <% end %>
+  <% end %>
+</div>
+</div>

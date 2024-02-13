@@ -1,0 +1,136 @@
+.title {
+  font-family: $headers-font;
+  color: $blue;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-align: center;
+}
+.sub-title {
+  font-family: $headers-font;
+  text-align: center;
+  letter-spacing: -O,2px;
+  font-weight: 400;
+}
+.icone-asso-home {
+  width: 100px;
+  height: 100px;
+  background-color: $blue;
+  border-radius: 50%;
+  font-size: 40px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+.icone-asso-show {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+.agenda-index {
+  height: 200px;
+   margin: 5px 20px 5px 0;
+}
+
+.photo-index-diary {
+  height: 200px;
+  width: auto;
+  object-fit: cover;
+ }
+.bloc-date-index-diary {
+ width: 160px;
+ background-color: $blue;
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  padding: 10px;
+}
+.nav-link-index {
+  font-family: $headers-font;
+   text-transform: uppercase;
+  letter-spacing: 1px;
+   text-decoration: none;
+   font-size: 14px;
+
+ }
+.nav-link-index:hover {
+   color: $red;
+   text-decoration: none;
+ }
+ .diary-list {
+  background-color: white;
+  width: 100%;
+  transition: background-color 1s; /* Apply transition to background-color property with a duration of 1 second */
+}
+
+.diary-list:hover {
+  background-color: #F5F5F5;
+}
+.card-product {
+  overflow: hidden;
+  padding: 10px 0px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  transition: background-color 1s; /* Apply transition to background-color property with a duration of 1 second */
+  margin-bottom: 10px;
+}
+.card-product:hover {
+  background-color: #F5F5F5;
+
+}
+
+.card-product img {
+  height: 100%;
+  object-fit: cover;
+ }
+.card-product-date {
+  height: 24px;
+  width: calc(100%);
+  background-color: $blue;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+   text-align: left;
+  padding: 10px;
+ }
+.card-product-infos {
+  height: 100%;
+  width: 100%;
+
+}
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+   padding-bottom: 0;
+}
+.search {
+  width: 100%;
+  height: auto !important;
+  padding: 30px 20px;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: sticky !important;
+  top: 130px !important;
+
+}
+
+.bg-blue {
+  background-color: $blue;
+  color:white
+}

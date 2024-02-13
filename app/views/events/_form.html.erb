@@ -1,0 +1,52 @@
+<div class="container">
+  <p>Vous organisez un événement sur Plancoët ou alentours ? Vous souhaitez nous le signaler afin de l'annoncer sur le site Internet ? <br>
+    Complétez le formulaire ci-dessous le plus précisément possible. Votre proposition sera étudiée par l'équipe en charge du site Internet avant d'être mise en ligne.
+  </p>
+  <form id="eventForm" class="form-horizontal" data-controller="form" data-action="submit->form#submit">
+    <%= simple_form_for event, html: { class: 'form-horizontal' } do |f| %>
+      <%= f.input :title, label: 'Titre' %>
+      <%= f.input :subtitle , label: 'Introduction' %>
+      <%= f.input :category_id, collection: Category.all, as: :select, prompt: "Sélectionnez une catégorie" , label: "Catégorie de l'évènement" %>
+      <%= f.input :photo , as: :file, label:'Image principale' %>
+      <p style="font-size:12px">N.B. : En nous faisant parvenir une image, vous certifiez en être le propriétaire et vous nous autorisez à l'utiliser sur le site Internet.</p>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :start_date, label: "Date de début",
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :end_date, label: "Date de fin",
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :hourly_start, label: "Heure de début",
+            as: :string,
+            input_html: { data: { controller: "timepicker" } } %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :hourly_end, label: "Heure de fin",
+            as: :string,
+            input_html: { data: { controller: "timepicker" } } %>
+        </div>
+      </div>
+      <hr>
+      <%= f.input :place, label: "Lieu de l'évènement" %>
+      <%= f.input :contact, label:'Personne référente'%>
+      <%= f.input :phone, label: 'Télphone' %>
+      <%= f.input :email, label: "E-mail" %>
+      <%= f.input :website, label: 'Site web' %>
+      <hr>
+      <%= f.input :content, label: 'Desciption la plus précise possible', input_html: { rows: 15 } %>
+      <%= f.button :submit, class: "btn btn-primary w-100", value: "Proposer un évènement" %>
+    <% end %>
+  </form>
+
+  <div id="texteRemplacement" class="d-none text-alert">
+    Le formulaire a été soumis avec succès.
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="content container p-5" style="flex:1">
+<h2 class="text-primary">
+  <%= @actuality.title %> <br>
+</h2>
+<p class="short-description-show">
+<%= @actuality.short_description %> <br>
+</p>
+
+<div class="row">
+
+  <div class="col-md-6"><div class="photo-actu-show">
+  <% if @actuality.photo.key? %>
+    <%= cl_image_tag @actuality.photo.key, class: "card-img zoom", style: "border-radius:0; box-shadow: 0 0 15px rgba(0,0,0,0.2);" %>
+    <% else %>
+    <%= image_tag 'home/home', class: "card-img zoom" %>
+  <% end %>
+</div>
+</div>
+ <div class="col-md-6"><div style="text-align:justify">
+  <% markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new) %>
+  <%= markdown.render(@actuality.content).html_safe %> <br>
+</div></div>
+ <div class="breadcrump">
+  <div>
+    <i class="fa-solid fa-tag"></i> <%= @actuality.category.name %>
+  </div>
+  <div>
+    <i class="fa-regular fa-clock"></i></i> <%= I18n.localize(@actuality.date, format: '%d %B %Y') %> <br>
+  </div>
+</div>
+
+</div>
+</div>
