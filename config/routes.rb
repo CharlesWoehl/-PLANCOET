@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, skip: [:registrations]
   resources :actualities, only: %i[index show]
   resources :events, only: %i[index show new create], path: 'agenda'
   resources :associations, only: %i[index show]
