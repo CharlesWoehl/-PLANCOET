@@ -1,6 +1,6 @@
 Trestle.resource(:generals) do
   menu do
-    item :generals, icon: "fa fa-home", label: "Page d'accueil"
+    item :generals, icon: "fa fa-home", label: "Infos générales du site"
   end
 
   # Customize the table columns shown on the index view.
@@ -12,13 +12,20 @@ Trestle.resource(:generals) do
   # Customize the form fields shown on the new/edit views.
   #
   form do |general|
-    tab :ACCUEIL do
+    tab :homepage do
       text_field :title, label: "Titre de la page d'accueil"
       text_area :subtitle, label: "Sous-titre de la page d'accueil"
-    end
-    tab :photo_accueil do
       file_field :photo, accept: "image/*"
       render "shared/media", model: general
+    end
+    tab :mentions_légales do
+      editor :legal_notice, label: "Mentions légales", rows: 5
+
+    end
+    tab :À_propos do
+      editor :about, label: "À propos", rows: 5
+      file_field :photo_about, accept: "image/*"
+      render "shared/media_about", model: general
 
     end
   end

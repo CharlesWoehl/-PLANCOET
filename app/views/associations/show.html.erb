@@ -46,8 +46,9 @@
 </div>
  <% if @association.website.present? %>
   <div class="text-center">
-    <%= link_to @association.website, 'http://@association.website', target: '_blank', class: "nav-link-site" %>
-   </div>
+
+    <%= link_to @association.website, "http://#{@association.website}", target: "_blank" , class: "nav-link-site" %>
+    </div>
   <% end %>
   <div class="text-center">
   <% if @association.facebook? %>

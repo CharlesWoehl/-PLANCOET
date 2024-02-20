@@ -1,0 +1,12 @@
+<div class="title-actu-home d-flex align-items-center flex-column justify-content-center" style="margin-top:20px">
+
+  <div class="title-under-icone">
+    <h2 class="title">Mentions légales</h2>
+  </div>
+  <p class="sub-title">
+ </p>
+</div>
+<div class="content container col-md-8" style="flex:1">
+  <% markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new) %>
+  <div><%= markdown.render(@general.legal_notice).html_safe %></div>
+</div>

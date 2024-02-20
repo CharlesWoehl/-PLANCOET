@@ -1,0 +1,14 @@
+<div class="title-actu-home d-flex align-items-center flex-column justify-content-center" style="margin-top:20px">
+  <div class="icone-asso-show d-flex justify-content-center align-items-center">
+   <%= cl_image_tag @general.photo_about.key, class: "asso-img zoom" %>
+  </div>
+  <div class="title-under-icone">
+    <h2 class="title">À propos</h2>
+  </div>
+  <p class="sub-title">
+ </p>
+</div>
+<div class="content container col-md-8" style="flex:1">
+  <% markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new) %>
+  <div><%= markdown.render(@general.about).html_safe %></div>
+</div>
