@@ -1,61 +1,55 @@
 <div class="title-actu-home d-flex align-items-center flex-column justify-content-center" style="margin-top:0px">
-  <div class="photo-actu-show">
-  <% if @event.photo.key? %>
-    <%= cl_image_tag @event.photo.key, class: "card-img zoom" %>
-    <% else %>
-    <%= image_tag 'home/home', class: "card-img zoom" %>
-  <% end %>
-</div>
   <div class="title-under-icone">
     <h2 class="title" ><%= @event.title %></h2>
   </div>
-  <p class="sub-title"><%= @event.subtitle %>
- </p>
+  <p class="sub-title"><%= @event.subtitle %></p>
 </div>
+
 <div class="content container px-5 py-3" style="flex:1">
   <div class="row">
-    <div class="col-md-8">
-<div class="breadcrump-diary">
-  <% if @event.end_date.present? %>
-   Du <%= I18n.localize(@event.start_date, format: '%d %B %Y') %> au <%= I18n.localize(@event.end_date, format: '%d %B %Y') %>
-  <% else %>
-    <%= I18n.localize(@event.start_date, format: '%d %B %Y') %>
-  <% end %>
-   <% if @event.hourly_end.present? %>
-   de <%= @event.hourly_start %> à <%= @event.hourly_end %>
-  <% elsif @event.hourly_start.present? %>
-    à <%= @event.hourly_start %>
-  <% end %>
-</div>
-<div class="bloc-diary">
-<p><i class="fa-solid fa-tag"></i> <%= @event.category.name %></p>
-<% if @event.place.present? %>
-<p><b>Lieu :</b> <%= @event.place %></p>
-<% end %>
-<% if @event.contact.present? %>
-<p><b>Contact :</b> <%= @event.contact %></p>
-<% end %>
-<% if @event.phone.present? %>
-  <p><b>Tél :</b> <%= @event.phone %></p>
-<% end %>
-
-<% if @event.email.present? %>
-  <p><b>Mail :</b> <%= @event.email %></p>
-<% end %>
-
-<% if @event.website.present? %>
-  <p><b>Site :</b> <%= @event.website %></p>
-<% end %>
-<hr>
- <% markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new) %>
- <p> <%= markdown.render(@event.content).html_safe %> </p>
- </div>
-    </div>
     <div class="col-md-4">
-     <div class="search text-center">
-     <%= link_to "<< Retour à l'agenda",events_path, class: "nav-link" %>
-
-</div>
+      <div class="photo-actu-show">
+    <% if @event.photo.key? %>
+      <%= cl_image_tag @event.photo.key, class: "card-img zoom" %>
+    <% else %>
+      <%= image_tag 'home/home', class: "card-img zoom" %>
+    <% end %>
+  </div>
+    </div>
+    <div class="col-md-8">
+      <div class="breadcrump-diary">
+        <% if @event.end_date.present? %>
+          Du <%= I18n.localize(@event.start_date, format: '%d %B %Y') %> au <%= I18n.localize(@event.end_date, format: '%d %B %Y') %>
+        <% else %>
+          <%= I18n.localize(@event.start_date, format: '%d %B %Y') %>
+        <% end %>
+        <% if @event.hourly_end.present? %>
+          de <%= @event.hourly_start %> à <%= @event.hourly_end %>
+        <% elsif @event.hourly_start.present? %>
+          à <%= @event.hourly_start %>
+        <% end %>
+      </div>
+      <div class="bloc-diary">
+        <p><i class="fa-solid fa-tag"></i> <%= @event.category.name %></p>
+        <% if @event.place.present? %>
+          <p><b>Lieu :</b> <%= @event.place %></p>
+        <% end %>
+        <% if @event.contact.present? %>
+          <p><b>Contact :</b> <%= @event.contact %></p>
+        <% end %>
+        <% if @event.phone.present? %>
+          <p><b>Tél :</b> <%= @event.phone %></p>
+        <% end %>
+        <% if @event.email.present? %>
+          <p><b>Mail :</b> <%= @event.email %></p>
+        <% end %>
+        <% if @event.website.present? %>
+          <p><b>Site :</b> <%= @event.website %></p>
+        <% end %>
+        <hr>
+        <% markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new) %>
+        <p> <%= markdown.render(@event.content).html_safe %> </p>
+      </div>
     </div>
   </div>
 </div>
