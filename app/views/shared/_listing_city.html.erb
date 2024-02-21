@@ -2,7 +2,7 @@
   <% @cities.each do |city| %>
     <div class="flex-container col-md-3">
       <%= link_to "http://#{city.website}", target: "_blank" do %>
-        <div class="flex-item card" style="border-radius:0 !important">
+        <div class="flex-item card" style="border-radius:0 !important; height:auto">
           <% if city.photo&.key? %>
             <div class="pic-card">
               <%= cl_image_tag city.photo.key, class: "card-img zoom" %>
