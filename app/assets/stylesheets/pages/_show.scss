@@ -39,8 +39,8 @@
 }
 .photo-actu-show {
   width: 100%;
-  height: 400px;
-  object-fit: cover;
+  // height: 400px;
+  object-fit: contain;
   object-position: center;
   margin-bottom: 20px;
  }

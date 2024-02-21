@@ -1,7 +1,9 @@
 <div class="title-actu-home d-flex align-items-center flex-column justify-content-center" style="margin-top:20px">
+<% if @general.photo_about.key? %>
   <div class="icone-asso-show d-flex justify-content-center align-items-center">
    <%= cl_image_tag @general.photo_about.key, class: "asso-img zoom" %>
   </div>
+  <% end %>
   <div class="title-under-icone">
     <h2 class="title">À propos</h2>
   </div>
