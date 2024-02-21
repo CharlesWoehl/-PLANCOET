@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, skip: [:registrations]
-  resources :actualities, only: %i[index show]
+  resources :actualities, only: %i[index show], path: 'actualites'
   resources :events, only: %i[index show new create], path: 'agenda'
   resources :associations, only: %i[index show]
   resources :cities, only: %i[index], path: 'ma-ville-pratique'

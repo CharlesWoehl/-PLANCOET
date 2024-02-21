@@ -10,9 +10,9 @@
 
   <div class="col-md-6"><div class="photo-actu-show">
   <% if @actuality.photo.key? %>
-    <%= cl_image_tag @actuality.photo.key, class: "card-img zoom", style: "border-radius:0; box-shadow: 0 0 15px rgba(0,0,0,0.2);" %>
+    <%= cl_image_tag @actuality.photo.key, class: "show-img zoom", style: "border-radius:0; box-shadow: 0 0 15px rgba(0,0,0,0.2);" %>
     <% else %>
-    <%= image_tag 'home/home', class: "card-img zoom" %>
+    <%= image_tag 'home/home', class: "show-img zoom" %>
   <% end %>
 </div>
 </div>

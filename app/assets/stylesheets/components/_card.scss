@@ -65,13 +65,21 @@
   text-align: center;
 }
  .card-img {
-  height: 100%;
-  object-fit: contain;
+  height: 200px;
+  object-fit: cover;
   // aspect-ratio: 5 / 4;
   transition: transform 0.3s ease-in-out; /* Ajout de la transition pour l'effet de zoom */
   background: transparent;
-  }
-
+   }
+  .show-img {
+    height: 100%;
+    object-fit: contain;
+    // aspect-ratio: 5 / 4;
+    transition: transform 0.3s ease-in-out; /* Ajout de la transition pour l'effet de zoom */
+    background: transparent;
+    border: 3px solid white;
+    width: 100%;
+    }
  .dashed-hr {
   border: none;
   border-top: 1px dashed; /* Couleur et style du trait en pointillé */

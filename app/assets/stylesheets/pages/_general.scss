@@ -84,8 +84,10 @@
 }
 
 .card-product img {
-  height: 100%;
+  height: 180px;
+  -o-object-fit: cover;
   object-fit: cover;
+  border: 3px solid white;  object-fit: cover;
  }
 .card-product-date {
   height: 24px;
@@ -144,4 +146,14 @@
   font-size: 30px;
   padding: 0 20%;
   text-align: center;
+}
+
+.result-search {
+  width: calc(100% - 10px);
+    padding: 0;
+    height: auto;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: $blue;
+    color: white;
 }

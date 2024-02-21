@@ -4,29 +4,30 @@
   </p>
   <form id="eventForm" class="form-horizontal" data-controller="form" data-action="submit->form#submit">
     <%= simple_form_for event, html: { class: 'form-horizontal' } do |f| %>
-      <%= f.input :title, label: 'Titre' %>
-      <%= f.input :subtitle , label: 'Introduction' %>
-      <%= f.input :category_id, collection: Category.all, as: :select, prompt: "Sélectionnez une catégorie" , label: "Catégorie de l'évènement" %>
-      <%= f.input :photo , as: :file, label:'Image principale' %>
+      <%= f.input :title, label: 'Titre', required: true %>
+      <%= f.input :subtitle , label: 'Introduction', required: true %>
+      <%= f.input :category_id, collection: Category.all, as: :select, prompt: "Sélectionnez une catégorie" , label: "Catégorie de l'évènement", required: true %>
+      <%= f.input :photo , as: :file, label:'Image principale', required: true %>
       <p style="font-size:12px">N.B. : En nous faisant parvenir une image, vous certifiez en être le propriétaire et vous nous autorisez à l'utiliser sur le site Internet.</p>
       <hr>
       <div class="row">
         <div class="col-md-6">
           <%= f.input :start_date, label: "Date de début",
             as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
+            input_html: { data: { controller: "datepicker" } },
+            required: true %>
         </div>
         <div class="col-md-6">
           <%= f.input :end_date, label: "Date de fin",
             as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
+            input_html: { data: { controller: "datepicker" } }%>
         </div>
       </div>
       <div class="row">
         <div class="col-md-6">
           <%= f.input :hourly_start, label: "Heure de début",
             as: :string,
-            input_html: { data: { controller: "timepicker" } } %>
+            input_html: { data: { controller: "timepicker" } }%>
         </div>
         <div class="col-md-6">
           <%= f.input :hourly_end, label: "Heure de fin",
@@ -35,13 +36,13 @@
         </div>
       </div>
       <hr>
-      <%= f.input :place, label: "Lieu de l'évènement" %>
-      <%= f.input :contact, label:'Personne référente'%>
-      <%= f.input :phone, label: 'Télphone' %>
-      <%= f.input :email, label: "E-mail" %>
+      <%= f.input :place, label: "Lieu de l'évènement", required: true %>
+      <%= f.input :contact, label:'Personne référente', required: true %>
+      <%= f.input :phone, label: 'Téléphone'%>
+      <%= f.input :email, label: "E-mail", required: true %>
       <%= f.input :website, label: 'Site web' %>
       <hr>
-      <%= f.input :content, label: 'Desciption la plus précise possible', input_html: { rows: 15 } %>
+      <%= f.input :content, label: 'Description la plus précise possible', input_html: { rows: 15 }, required: true %>
       <%= f.button :submit, class: "btn btn-primary w-100", value: "Proposer un évènement" %>
     <% end %>
   </form>
