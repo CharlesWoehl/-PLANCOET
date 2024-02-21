@@ -1,7 +1,7 @@
 <div class="row">
   <% @cities.each do |city| %>
     <div class="flex-container col-md-3">
-      <%= link_to city.website, target: "_blank" do %>
+      <%= link_to "#{city.website}", target: "_blank" do %>
         <div class="flex-item card" style="border-radius:0 !important; height:auto">
           <% if city.photo&.key? %>
             <div class="pic-card">
