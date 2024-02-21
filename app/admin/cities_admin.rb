@@ -11,8 +11,7 @@ Trestle.resource(:cities) do
   form do |city|
     tab :infos, label: "Infos" do
       text_field :name, label: "Nom du service ou de la structure"
-      editor :infos, label: "Infos", rows: 5
-      text_field :website, label: "Site internet"
+      text_field :website, label: "Site internet avec HTTP ou HTTPS"
     end
 
     tab :photo, label: "Photo" do

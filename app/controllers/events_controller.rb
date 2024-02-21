@@ -17,7 +17,7 @@ class EventsController < ApplicationController
       @events = @events.search_by_category(category_name)
     end
 
-    @events = @events.page(params[:page]).per(6)
+    @events = @events.page(params[:page]).per(12)
 
     # Si aucun résultat trouvé, afficher un message
     @no_results_message = "Désolé, aucun résultat trouvé." if @events.blank?
