@@ -5,7 +5,7 @@
         <div class="flex-item card">
           <% if actuality.photo&.key? %>
             <div class="pic-card">
-              <%= cl_image_tag actuality.photo.key, class: "card-img zoom", style: "border-radius: 10px 10px 0 0;" %>
+              <%= cl_image_tag actuality.photo.key, class: "card-img zoom"%>
             </div>
           <% else %>
             <div class="pic-card">
