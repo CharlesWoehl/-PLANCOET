@@ -2,7 +2,13 @@
 <nav class="navbar navbar-expand-lg navbar-light navbar-jaimeplancoet sticky-top transparent"
   data-controller="navbar"
   data-action="scroll@window->navbar#updateNavbar">
-  <div class="container-fluid px-5">
+  <div class="container-fluid
+  <% if request.user_agent =~ /Mobile/ %>
+   px-2
+  <% else %>
+    px-5
+  <% end %>
+   ">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "logo.png", style: "height:90px; width:auto", class: "logo" %>
     <% end %>

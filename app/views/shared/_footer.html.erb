@@ -1,4 +1,9 @@
-<div class="footer">
+
+<div class="footer
+<% if request.user_agent =~ /Mobile/ %>
+flex-column
+<% end %>
+">
   <div class="footer-links">
     <a href="https://www.facebook.com/profile.php?id=61556203667974" target="_blank"><i class="fab fa-facebook"></i></a>
     <%= link_to "Mentions légales", mentions_legales_path, class: "nav-link", style: "font-size:12px; opacity:1" %>
