@@ -22,7 +22,6 @@ class EventsController < ApplicationController
     # Récupérer les catégories des événements filtrés
     @categories = Category.joins(:events).where(events: { id: @events.pluck(:id) }).distinct
 
-    @events = @events.page(params[:page]).per(12)
 
     # Si aucun résultat trouvé, afficher un message
     @no_results_message = "Désolé, aucun résultat trouvé." if @events.blank?
