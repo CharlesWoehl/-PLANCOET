@@ -7,7 +7,9 @@ class EventsController < ApplicationController
                 category = Category.find_by(name: category_name)
                 category.present? ? category.events : Event.none
               else
-                Event.where(display: true).order(start_date: :asc).where("start_date >= ?", Date.today)
+                Event.where(display: true)
+                     .where("start_date >= ?", Date.today)
+                     .order(Arel.sql("start_date ASC, COALESCE(hourly_start, '23:59:59') ASC"))
               end
 
     @events = @events.search_by_keywords(@query) if @query.present?
@@ -17,12 +19,14 @@ class EventsController < ApplicationController
       @events = @events.search_by_category(category_name)
     end
 
+    # Récupérer les catégories des événements filtrés
+    @categories = Category.joins(:events).where(events: { id: @events.pluck(:id) }).distinct
+
     @events = @events.page(params[:page]).per(12)
 
     # Si aucun résultat trouvé, afficher un message
     @no_results_message = "Désolé, aucun résultat trouvé." if @events.blank?
     @event = Event.new  # Assurez-vous que @event est initialisé
-
   end
 
   def show

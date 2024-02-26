@@ -1,6 +1,6 @@
 <div class="row">
   <% @actualities.each do |actuality| %>
-    <div class="flex-container col-md-3">
+    <div class="flex-container col-12 col-md-6 col-lg-3">
       <%= link_to actuality_path(actuality), class: 'no-link' do %>
         <div class="flex-item card">
           <% if actuality.photo&.key? %>

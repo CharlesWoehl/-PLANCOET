@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_17_160430) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_26_161548) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -87,6 +87,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_17_160430) do
     t.text "infos"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_cities_on_category_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -142,5 +144,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_17_160430) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "actualities", "categories"
   add_foreign_key "associations", "categories"
+  add_foreign_key "cities", "categories"
   add_foreign_key "events", "categories"
 end

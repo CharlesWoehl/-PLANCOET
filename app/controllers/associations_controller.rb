@@ -7,8 +7,10 @@ class AssociationsController < ApplicationController
                       Association.all.order(:name)
                     end
 
-    @category = Category.all
+    # Filtrer les catégories en fonction de la présence d'associations
+    @categories_with_associations = Category.joins(:associations).distinct.order(:name)
   end
+
   def show
     @association = Association.find(params[:id])
   end

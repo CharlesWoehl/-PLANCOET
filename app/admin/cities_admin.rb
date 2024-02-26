@@ -10,6 +10,8 @@ Trestle.resource(:cities) do
 
   form do |city|
     tab :infos, label: "Infos" do
+      select :category_id, Category.all, label: "Catégorie de l'association"
+
       text_field :name, label: "Nom du service ou de la structure"
       text_field :website, label: "Site internet avec HTTP ou HTTPS"
     end
