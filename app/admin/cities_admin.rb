@@ -1,6 +1,6 @@
 Trestle.resource(:cities) do
   menu do
-    item :cities, icon: "fa fa-city", label: "Ma ville pratique"
+    item :cities, icon: "fa fa-city", label: "Pratique"
   end
 
   table do
@@ -10,8 +10,7 @@ Trestle.resource(:cities) do
 
   form do |city|
     tab :infos, label: "Infos" do
-      select :category_id, Category.all, label: "Catégorie de l'association"
-
+      select :category_id, Category.all, { label: "Catégorie du service ou de la structure" }, { include_blank: true } # Rendre le champ facultatif
       text_field :name, label: "Nom du service ou de la structure"
       text_field :website, label: "Site internet avec HTTP ou HTTPS"
     end

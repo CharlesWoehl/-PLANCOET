@@ -9,7 +9,6 @@
 </p>
 </div>
 <div class="content container px-5" style="flex:1; margin-top:10px">
- <div class="d-flex flex-wrap justify-content-center pb-4">
     <% @categories_with_cities.each do |catassoc| %>
       <div class="d-flex mx-2 mb-2">
         <%= link_to cities_path(filter: { category: catassoc.name }) do %>
