@@ -99,6 +99,10 @@
   border-radius: 50%;
   transition: transform 0.3s ease-in-out; /* Ajout de la transition pour l'effet de zoom */
 }
+.pic-card {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 270px;
+}
 .pic-card-asso {
   width: 200px;
   height: 200px;
@@ -106,7 +110,3 @@
   border-radius: 50%;
   margin: 0 auto;
  }
-.pic-card {
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
-}

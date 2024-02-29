@@ -64,7 +64,7 @@
       <% end %>
       </div>
       <% unless request.user_agent =~ /Mobile/ %>
-        <div class="col-md-4">
+        <div class="col-12 col-lg-4">
           <div class="search">
             <h4 class="pb-2">Filtrer les résultats par</h4>
             <%= simple_form_for :filter, url: events_path, method: :get, html: { class: 'form-inline w-100' } do |f| %>
