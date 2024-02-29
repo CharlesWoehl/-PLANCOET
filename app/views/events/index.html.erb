@@ -63,9 +63,10 @@
         <% end %>
       <% end %>
       </div>
-
-        <div class="col-12 col-lg-4">
-          <div class="search">
+<%# barre recherche %>
+     <%# Barre de recherche %>
+      <div class="col-12 col-lg-4 d-none d-md-block"> <!-- Masquer sur les écrans de taille XS et SM -->
+        <div class="search">
             <h4 class="pb-2">Filtrer les résultats par</h4>
             <%= simple_form_for :filter, url: events_path, method: :get, html: { class: 'form-inline w-100' } do |f| %>
               <h5>Catégories</h5>
