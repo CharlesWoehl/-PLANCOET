@@ -43,7 +43,6 @@
         </div>
       <% end %>
     </div>
-  </div>
    <!-- Affichez votre breadcrumb ici -->
     <% if params.dig(:filter, :keywords).present? || params.dig(:filter, :category).present? %>
   <div class="result-search">
@@ -60,6 +59,9 @@
     <% end %>
   </div>
   <% end %>
+
+    </div>
+
     <div class="col-12">
       <% @events.each do |agenda| %>
         <%= link_to event_path(agenda), class: "no-link" do %>
@@ -97,30 +99,7 @@
       </div>
 
         <%# barre recherche %>
-        <div class="col-12 col-lg-4 d-none d-md-block">
-          <div class="search">
-            <h4 class="pb-2">Filtrer les résultats par</h4>
-            <%= simple_form_for :filter, url: events_path, method: :get, html: { class: 'form-inline w-100' } do |f| %>
-              <h5>Catégories</h5>
-              <%= f.input :category, collection: @categories.pluck(:name), prompt: "Sélectionnez une catégorie", required: false, input_html: { class: 'form-control', value: params.dig(:filter, :category) }, label: false %>
-              <h5 class="pt-2">Mots clés</h5>
-              <%= f.input :keywords, placeholder: 'Recherche ...', label: false, input_html: { class: 'form-control', value: params[:filter]&.[](:keywords), autocomplete: 'off' } %>
-              <div>
-                <button class="btn btn-primary w-100 my-1">Rechercher</button><br>
-              </div>
-              <div>
-                <%= link_to events_path, class: 'btn btn-primary w-100 opacity-75' do %>
-                  Réinitialiser
-                <% end %>
-              </div>
-              <div>
-                <button type="button" class="btn btn-outline-primary w-100 my-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                  Proposer un évènement
-                </button>
-              </div>
-            <% end %>
-          </div>
-        </div>
+
      </div>
   </div>
 </div>

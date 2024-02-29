@@ -10,7 +10,7 @@
   <p class="sub-title">
  </p>
 </div>
-<div class="content container col-md-8" style="flex:1">
+<div class="content container col-md-10 mt-3" style="flex:1">
   <% markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new) %>
   <div><%= markdown.render(@general.about).html_safe %></div>
 </div>
