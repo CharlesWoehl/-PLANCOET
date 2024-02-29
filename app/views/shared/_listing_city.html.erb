@@ -4,11 +4,11 @@
       <%= link_to "#{city.website}", target: "_blank" do %>
         <div class="flex-item card" style="border-radius:0 !important; height:auto">
           <% if city.photo&.key? %>
-            <div class="pic-card" style="width:100%">
+            <div class="pic-card" style="width:100">
               <%= cl_image_tag city.photo.key, class: "card-img zoom" %>
             </div>
           <% else %>
-            <div class="pic-card" style="width:100%">
+            <div class="pic-card" style="width:100">
               <!-- Placeholder or default image -->
               <%= image_tag 'home/home', class: "card-img zoom" %>
             </div>

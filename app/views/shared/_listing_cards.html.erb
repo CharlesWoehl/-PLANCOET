@@ -4,11 +4,11 @@
       <%= link_to actuality_path(actuality), class: 'no-link' do %>
         <div class="flex-item card">
           <% if actuality.photo&.key? %>
-            <div class="pic-card" style="width:auto">
+            <div class="pic-card" style="width:100">
               <%= cl_image_tag actuality.photo.key, class: "card-img zoom"%>
             </div>
           <% else %>
-            <div class="pic-card" style="width:auto">
+            <div class="pic-card" style="width:100">
               <!-- Placeholder or default image -->
               <%= image_tag 'home/home', class: "card-img zoom" %>
             </div>
