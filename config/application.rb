@@ -26,7 +26,7 @@ module Plancoet
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w(assets tasks))
     GoogleAnalyticsRails.configure do |config|
-      config.tracker = 'UA-XXXXXXXXX-X'
+      config.tracker = 'GTM-P6KG78SF'
     end
     # Configuration for the application, engines, and railties goes here.
     #
