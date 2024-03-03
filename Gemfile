@@ -57,7 +57,6 @@ gem 'redcarpet'
 gem 'kaminari'
 gem 'rails-i18n'
 gem 'trestle-auth'
-gem 'google-analytics-rails'
 
 group :development, :test do
   gem "dotenv-rails"
